@@ -1,23 +1,20 @@
 import { useQuery } from "@apollo/client";
-import { IPet, PetType } from "./models/models";
-import { getAllPets } from "./services/pets";
+import { IBook } from "./models/models";
+import { getAllBooks } from "./services/books";
 
 function App() {
-  const { data, loading } = useQuery<{
-    pets: IPet[];
-  }>(getAllPets);
-
+  const { data, loading } = useQuery<{ getAllBooks: IBook[] }>(getAllBooks);
   return (
     <div>
       {loading && <div>Loading ...</div>}
       <div>
+        <div>Books</div>
         {data &&
-          data.pets.map((_, index: number) => (
+          data.getAllBooks.map((_, index: number) => (
             <div key={index}>
               <div>
-                {_.id} {_.name}
+                {_.id} {_.title}
               </div>
-              <div>{PetType[_.type]}</div>
             </div>
           ))}
       </div>
