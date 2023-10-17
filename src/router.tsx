@@ -3,6 +3,7 @@ import { Root } from "./pages/Root";
 import { AllAuthorsPage } from "./pages/AllAuthors";
 import { BookDetailPage } from "./pages/BookDetail";
 import { HomePage } from "./pages/Home";
+import { AllBooksPage } from "./pages/AllBooks";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "all-authors",
         element: <AllAuthorsPage />,
+      },
+      {
+        path: "all-books",
+        element: <AllBooksPage />,
       },
       {
         path: "authors/:authorId/books/:bookId",

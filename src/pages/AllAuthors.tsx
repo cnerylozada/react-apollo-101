@@ -4,12 +4,16 @@ import { getAllAuthors } from "../services/authors";
 import { Link } from "react-router-dom";
 
 export const AllAuthorsPage = () => {
-  const { data, loading, error } = useQuery<{ getAllAuthors: IAuthor[] }>(
-    getAllAuthors
-  );
+  const { data, loading, error, refetch } = useQuery<{
+    getAllAuthors: IAuthor[];
+  }>(getAllAuthors);
+  
   return (
     <div>
       <div>Get all Authors</div>
+      <div>
+        <button onClick={() => refetch()}>Refetch new breed!</button>
+      </div>
       {error && <div>{error.message}</div>}
       {loading && <div>Loading ...</div>}
       {data &&
@@ -18,14 +22,18 @@ export const AllAuthorsPage = () => {
             <div>
               id: {_.id} Name: {_.firstName}
             </div>
-            <div>
-              <span>Books:</span>
-              {_.books.map((book) => (
-                <Link key={book.id} to={`/authors/${_.id}/books/${book.id}`}>
-                  {book.title}
-                </Link>
-              ))}
-            </div>
+            {!!_.books.length && (
+              <div>
+                <div>Books:</div>
+                {_.books.map((book) => (
+                  <div key={book.id}>
+                    <Link to={`/authors/${_.id}/books/${book.id}`}>
+                      {book.title}
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         ))}
     </div>
