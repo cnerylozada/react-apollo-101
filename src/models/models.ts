@@ -10,7 +10,16 @@ export interface IPet {
   type: keyof typeof PetType;
 }
 
+
 export interface IBook {
-  id: string;
+  id: number;
   title: string;
+  votes?: number;
 }
+export interface IAuthor {
+  id: number,
+  firstName: string;
+  books: IBook[]
+}
+
+

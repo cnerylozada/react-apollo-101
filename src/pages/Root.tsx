@@ -1,9 +1,14 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link} from "react-router-dom";
 
 export const Root = () => {
   return (
     <div>
-      <div>Header</div>
+      <div>
+        <Link to="/home">Home</Link>
+      </div>
+      <div>
+        <Link to="/all-authors">All Authors</Link>
+      </div>
       <div>
         <Outlet />
       </div>
