@@ -8,3 +8,13 @@ export const getAllBooks = gql`
     }
   }
 `;
+
+export const getBookById = gql`
+  query ($bookId: ID!) {
+    getBookById(id: $bookId) {
+      id
+      title
+      votes
+    }
+  }
+`;
