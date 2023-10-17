@@ -13,3 +13,11 @@ export const getAllAuthors = gql`
     }
   }
 `;
+
+export const saveAuthor = gql`
+  mutation ($author: CreateAuthorInputDto!) {
+    saveAuthor(author: $author) {
+      id
+    }
+  }
+`;

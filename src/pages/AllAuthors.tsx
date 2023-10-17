@@ -7,11 +7,12 @@ export const AllAuthorsPage = () => {
   const { data, loading, error, refetch } = useQuery<{
     getAllAuthors: IAuthor[];
   }>(getAllAuthors);
-  
+
   return (
     <div>
       <div>Get all Authors</div>
       <div>
+        <button style={{marginRight: '16px'}}><Link to="./create">Create new one</Link></button>
         <button onClick={() => refetch()}>Refetch new breed!</button>
       </div>
       {error && <div>{error.message}</div>}
