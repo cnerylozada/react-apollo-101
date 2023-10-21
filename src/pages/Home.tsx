@@ -1,7 +1,7 @@
 export const HomePage = () => {
   return (
     <div>
-      <div>Home</div>
+      <div style={{ fontWeight: "bold" }}>Home</div>
     </div>
   );
 };

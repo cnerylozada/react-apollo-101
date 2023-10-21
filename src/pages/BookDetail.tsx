@@ -5,14 +5,17 @@ import { getBookById } from "../services/books";
 
 export const BookDetailPage = () => {
   const { bookId } = useParams();
-  const { data, loading } = useQuery<{ getBookById: IBook }>(getBookById, {
+  const { data, loading } = useQuery<
+    { getBookById: IBook },
+    { bookId: number }
+  >(getBookById, {
     variables: {
       bookId: +`${bookId}`,
     },
   });
   return (
     <div>
-      <div>Book detail: {bookId}</div>
+      <div style={{ fontWeight: "bold" }}>Book detail: {bookId}</div>
       {loading && <div>Loading ...</div>}
       {data && (
         <div>

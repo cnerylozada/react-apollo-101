@@ -18,3 +18,11 @@ export const getBookById = gql`
     }
   }
 `;
+
+export const saveBookInAuthor = gql`
+  mutation ($book: CreateBookInputDto!, $authorId: ID!) {
+    saveBookInAuthor(book: $book, authorId: $authorId) {
+      id
+    }
+  }
+`;

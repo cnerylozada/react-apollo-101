@@ -22,7 +22,7 @@ export const AllBooksPage = () => {
         </button>
       </div>
       {loading && <div>Loading ...</div>}
-      {data?.getAllBooks.length && (
+      {data?.getAllBooks.length ? (
         <div>
           {data.getAllBooks.map((_) => (
             <div key={_.id}>
@@ -30,6 +30,8 @@ export const AllBooksPage = () => {
             </div>
           ))}
         </div>
+      ) : (
+        <div>No hay libros registrado</div>
       )}
     </div>
   );

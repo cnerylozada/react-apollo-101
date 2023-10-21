@@ -5,6 +5,7 @@ import { BookDetailPage } from "./pages/BookDetail";
 import { HomePage } from "./pages/Home";
 import { AllBooksPage } from "./pages/AllBooks";
 import { CreateAuthorPage } from "./pages/CreateAuthorPage";
+import { CreateBookPage } from "./pages/CreateBook";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: "all-authors/create",
         element: <CreateAuthorPage />,
+      },
+      {
+        path: "all-authors/:authorId/add-book",
+        element: <CreateBookPage />,
       },
       {
         path: "all-books",

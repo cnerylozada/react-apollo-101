@@ -10,16 +10,25 @@ export const AllAuthorsPage = () => {
 
   return (
     <div>
-      <div>Get all Authors</div>
+      <div style={{ fontWeight: "bold" }}>Get all Authors</div>
       <div>
-        <button style={{marginRight: '16px'}}><Link to="./create">Create new one</Link></button>
-        <button onClick={() => refetch()}>Refetch new breed!</button>
+        <button style={{ marginRight: "16px" }}>
+          <Link to="./create">Create new one</Link>
+        </button>
+        <button onClick={() => refetch()}>Refetch new authors!</button>
       </div>
+      <hr />
+
       {error && <div>{error.message}</div>}
       {loading && <div>Loading ...</div>}
       {data &&
         data.getAllAuthors.map((_) => (
           <div key={_.id}>
+            <div>
+              <button>
+                <Link to={`./${_.id}/add-book`}>Add new book</Link>
+              </button>
+            </div>
             <div>
               id: {_.id} Name: {_.firstName}
             </div>
