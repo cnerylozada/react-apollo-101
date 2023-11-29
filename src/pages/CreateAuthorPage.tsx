@@ -6,7 +6,9 @@ import { IAuthor } from "../models/models";
 
 export const CreateAuthorPage = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm({ mode: "all" });
+  const { register, handleSubmit } = useForm<{ firstName: string }>({
+    mode: "all",
+  });
   const [fetchSaveAuthor, { loading }] = useMutation<
     IAuthor,
     { author: { firstName: string } }
